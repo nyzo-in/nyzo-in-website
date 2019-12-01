@@ -20,7 +20,12 @@ module.exports = withMdxEnhanced({
     )
 
     return config
-  }
+  },
+  publicRuntimeConfig: {
+    localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string'
+      ? process.env.LOCALE_SUBPATHS
+      : 'none',
+  },
 })()
 
 
