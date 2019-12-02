@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import { i18n, Link, withTranslation } from '../i18n';
 // import { frontMatter } from './docs/*.mdx';
-import { frontMatter } from './*/docs/*.mdx';
+import { frontMatter } from './**/*.mdx';
 
 const Homepage = ({ t, lang }) => {
   console.log(frontMatter);

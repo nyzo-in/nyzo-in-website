@@ -7,16 +7,20 @@ import LanguageSelect from './LanguageSelect.jsx';
 
 const Header = ({ t, lang }) => (
   <header>
-    <Link href={'/' + lang}>
+    <Link href={'/'}>
       <a>{t('home')}</a>
     </Link>
     <br />
-    <NextLink href={'/en/docs/intro'}>
+    <NextLink href={'/en/guides/intro'}>
       <a>en intro</a>
     </NextLink>
     <br />
     <NextLink href={'/de/docs/intro'}>
       <a>de intro</a>
+    </NextLink>
+    <br />
+    <NextLink href={'/es/guias/intro'}>
+      <a>es intro</a>
     </NextLink>
     <LanguageSelect lang={lang} />
   </header>

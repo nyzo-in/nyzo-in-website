@@ -1,12 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { version } from 'next-i18next/package.json';
 import { withTranslation } from '../i18n';
+
+const links = [
+  {
+    key: 'home',
+    url: 'https://nyzo.co',
+  },
+  {
+    key: 'twitter',
+    name: '@nyzo_currency on Twitter',
+    url: 'https://twitter.com/nyzo_currency',
+  },
+  {
+    key: 'reddit',
+    url: 'https://www.reddit.com/r/Nyzo/',
+  },
+  {
+    key: 'facebook',
+    url: 'https://www.facebook.com/nyzoblockchain/',
+  },
+  {
+    key: 'telegram',
+    url: 'https://t.me/NyzoCo',
+  },
+  {
+    key: 'bitcointalk',
+    url: 'https://bitcointalk.org/index.php?topic=5079696.0',
+  },
+];
 
 const Footer = ({ t }) => (
   <footer>
-    <p>{t('description')}</p>
-    <p>next-i18next v{version}</p>
+    <h4>{t('links.heading')}</h4>
+    <ul>
+      {links.map(link => {
+        return (
+          <li key={link.key}>
+            <a target="_blank" rel="noreferrer" href={link.url}>
+              {t('links.' + link.key)}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   </footer>
 );
 

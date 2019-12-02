@@ -7,15 +7,15 @@ class LanguageSelect extends Component {
   handleChange(event) {
     event.preventDefault();
     if (i18n.language !== event.target.value) {
+      console.log('hi');
       i18n.changeLanguage(event.target.value);
       // work out which page to change to
       // go to the homepage for now
       // this works for home page
-      // NextRouter.push('/', '/' + event.target.value, { shallow: true });
-      // testing -->
+      NextRouter.push('/', '/' + event.target.value);
       // looks like this works when on the intro page
       // todo , make dynamic
-      NextRouter.push('/docs/intro', '/' + event.target.value + '/docs/intro', { shallow: true });
+      // NextRouter.push('/docs/intro', '/' + event.target.value + '/docs/intro', { shallow: true });
     }
   }
 
