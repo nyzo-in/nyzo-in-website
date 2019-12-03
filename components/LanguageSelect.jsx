@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import NextRouter from 'next/router';
 
 import { i18n, Link, Router } from '../i18n';
+import { nextPageFromLang } from '../lib/utils';
 
 class LanguageSelect extends Component {
-  handleChange(event) {
+  async handleChange(event) {
     event.preventDefault();
-    if (i18n.language !== event.target.value) {
-      console.log('hi');
-      i18n.changeLanguage(event.target.value);
-      // work out which page to change to
-      // go to the homepage for now
-      // this works for home page
-      NextRouter.push('/', '/' + event.target.value);
-      // looks like this works when on the intro page
-      // todo , make dynamic
-      // NextRouter.push('/docs/intro', '/' + event.target.value + '/docs/intro', { shallow: true });
+    const language = event.target.value;
+    if (i18n.language !== language) {
+      let routerParams = nextPageFromLang(i18n.language, language);
+      await i18n.changeLanguage(language);
+      NextRouter.push(...routerParams);
     }
   }
 
