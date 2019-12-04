@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import App from 'next/app';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { reset } from 'styled-reset';
 import { Html } from 'next/document';
 import Page from '../components/Page';
 import { i18n, appWithTranslation } from '../i18n';
+
+const theme = {
+  colors: {
+    primary: '#0070f3',
+  },
+};
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  body {
+    color: ${props => (props.whiteColor ? 'white' : 'black')};
+  }
+`;
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx, req }) {
@@ -24,11 +39,12 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Page {...pageProps}>
           <Component {...pageProps} />
         </Page>
-      </>
+      </ThemeProvider>
     );
   }
 }

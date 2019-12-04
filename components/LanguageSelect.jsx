@@ -17,7 +17,7 @@ class LanguageSelect extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <p>Lang select</p>
         <select name="language" onChange={this.handleChange} defaultValue={this.props.lang}>
           {i18n.options.allLanguages.map(language => (
@@ -26,7 +26,7 @@ class LanguageSelect extends Component {
             </option>
           ))}
         </select>
-      </>
+      </div>
     );
   }
 }
