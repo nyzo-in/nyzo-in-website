@@ -1,8 +1,6 @@
 const path = require('path');
 const withMdxEnhanced = require('next-mdx-enhanced');
 const ExtraWatchPlugin = require('extra-watch-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
 
 module.exports = withMdxEnhanced({
   scan: {
@@ -19,7 +17,7 @@ module.exports = withMdxEnhanced({
   webpack: config => {
     config.plugins.push(
       new ExtraWatchPlugin({
-        dirs: [path.join(config.context, 'pages'), path.join(config.context, 'content')],
+        dirs: [path.join(config.context, 'pages')],
       }),
     );
     return config;
