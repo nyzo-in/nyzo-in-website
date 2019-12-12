@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import { frontMatter as introData } from '../pages/docs/intro.mdx';
-import { frontMatter as advancedData } from '../pages/docs/advanced.mdx';
+// import { frontMatter as introData } from '../pages/docs/intro.mdx';
+// import { frontMatter as advancedData } from '../pages/docs/advanced.mdx';
 
 const DocsPage = frontMatter => {
   const __scans = frontMatter.__scans;
@@ -22,9 +22,7 @@ const DocsPage = frontMatter => {
         {__scans.hasMesh && <h1>We found mesh</h1>}
 
         {__scans.meshName && <h1>{__scans.meshName}</h1>}
-        <p>
-          Other docs: {introData.title}, {advancedData.title}
-        </p>
+        <p>hi</p>
         {children}
       </>
     );

@@ -1,13 +1,20 @@
 import NextLink from 'next/link';
 import { i18n, Link, withTranslation } from '../i18n';
-// import { frontMatter } from './docs/*.mdx';
-import { frontMatter } from './**/*.mdx';
+import { frontMatter } from './en/**/*.mdx';
+
+function compare(a, b) {
+  if (!a.order || !b.order) {
+    return 0;
+  }
+  return Number.parseInt(b.order) > Number.parseInt(a.order) ? -1 : 1;
+}
 
 const Homepage = ({ t, lang }) => {
-  console.log(frontMatter);
+  // console.log(frontMatter);
+  frontMatter.sort(compare);
   return (
     <>
-      <h1>root Docs Index</h1>
+      <h1>root Docs Index 13</h1>
       <ul>
         {frontMatter.map(page => {
           const resourceLang = page.__resourcePath.split('/')[0];

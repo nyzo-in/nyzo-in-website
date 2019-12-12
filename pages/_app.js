@@ -13,7 +13,7 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
+  ${'' /* ${reset} */}
   body {
     color: ${props => (props.whiteColor ? 'white' : 'black')};
   }
