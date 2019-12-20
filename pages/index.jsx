@@ -41,5 +41,5 @@ Homepage.getInitialProps = async () => ({
 export default withTranslation('footer')(Homepage);
 
 function formatPath(p) {
-  return '/' + p.replace(/\.mdx$/, '');
+  return `/${p.replace(/\.mdx$/, '')}`;
 }

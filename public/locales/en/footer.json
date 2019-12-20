@@ -1,0 +1,12 @@
+{
+  "description": "This is a non-page component that requires its own namespace",
+  "links": {
+    "heading": "Links",
+    "home": "Official Home",
+    "twitter": "@nyzo_currency on Twitter",
+    "reddit": "/r/Nyzo on Reddit",
+    "facebook": "nyzoblockchain on Facebook",
+    "telegram": "NyzoCo on Telegram",
+    "bitcointalk": "Announcment on bitcointalk.org"
+  }
+}

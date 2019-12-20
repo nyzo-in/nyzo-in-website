@@ -9,7 +9,6 @@ const fetch = require('isomorphic-unfetch');
 const mcache = require('memory-cache');
 const nextI18NextMiddleware = require('next-i18next/middleware').default;
 const customMiddleware = require('../lib/custom-middleware.js').default;
-const cpx = require('cpx');
 
 const nextI18next = require('../i18n');
 
@@ -18,11 +17,9 @@ const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handle = app.getRequestHandler();
 const server = express();
 
-cpx.watch('./content/pages/*/**', './pages').on('copy', e => {});
-
 const cache = duration => {
   return (req, res, next) => {
-    let key = '__express__' + req.originalUrl || req.url;
+    const key = `__express__${  req.originalUrl}` || req.url;
     const cachedBody = mcache.get(key);
     if (cachedBody) {
       res.send(cachedBody);
