@@ -1,0 +1,131 @@
+---
+layout: 'docs-page'
+title: 'nyzo.in project structure'
+---
+
+## Overview
+
+What is on this page? It's a description of the folders and files for this website.
+
+If you're interested in contributing content and/or translations to the project then all you need to know about is: Pages, Components and Public.
+
+Otherwise, if you want to contribute code to the project, then all of it is relevant.
+
+## Pages
+
+This is where content is written. You will see:
+
+1. Folders for each language. 
+1. Sub folders for content categories.
+1. *.mdx files. These are (enhanced) MarkDown files for written content.
+1. Content editors can ignore the "system files": _app.js, _document.js, _error.js, index.jsx
+
+Have a look in: `pages/en/self/the-project-structure.mdx`, it's where this content (that you're reading now) is typed.
+
+```
+📂pages
+ ┣ 📂en
+ ┃ ┣ 📂guides
+ ┃ ┃ ┗ 📜intro.mdx
+ ┃ ┗ 📂self
+ ┃ ┃ ┣ 📜contribute-code.mdx
+ ┃ ┃ ┣ 📜contribute-content.mdx
+ ┃ ┃ ┣ 📜local-development.mdx
+ ┃ ┃ ┣ 📜the-project-structure.mdx
+ ┃ ┃ ┗ 📜translations.mdx
+ ┣ 🚷_app.js
+ ┣ 🚷_document.js
+ ┣ 🚷_error.js
+ ┗ 🚷index.jsx
+```
+
+## Components
+
+The website is built of many components. These are all located in the components folder. This structure is helpful because a component can be written once and re-used many times.
+
+When a component has styles, a folder is created to contain both.
+
+Components do not have language content inside them, it is imported from locales. 
+
+```
+📦components
+ ┣ 📂header
+ ┃ ┣ 📜Header.jsx
+ ┃ ┗ 📜styles.js
+ ┣ 📜Footer.jsx
+ ┣ 📜LanguageSelect.jsx
+ ┣ 📜Mesh.jsx
+ ┗ 📜Page.jsx
+```
+
+## Public
+
+1. Here, each language has a folder. and inside it are *.json files. These contain the words/content for components.
+2. Assets like images are also saved here.
+
+```
+📦public
+ ┗ 📂locales
+ ┃ ┣ 📂de
+ ┃ ┃ ┣ 📜common.json
+ ┃ ┃ ┣ 📜footer.json
+ ┃ ┃ ┗ 📜mesh.json
+ ┃ ┣ 📂en
+ ┃ ┃ ┣ 📜common.json
+ ┃ ┃ ┣ 📜footer.json
+ ┃ ┃ ┗ 📜mesh.json
+ ┗ 📂images
+ ```
+
+## i18n.js
+
+You'll need to edit this file if you're adding a new language.
+
+```
+📦lib
+ ┣ 📜i18n.js
+```
+
+Content writers and translators, you're done with this page now (if you like). The rest of it is more relevant to coders.
+
+## The other stuff
+
+## Docker
+
+These are the related to docker. The idea is that docker provides us with a consistent environment for local development across various different machines.
+
+It is normally not necessary to edit these files.
+
+```
+📦nyzo-in-website
+ ┣ 📂docker
+ ┃ ┗ 📂web
+ ┃ ┃ ┣ 📜Dockerfile
+ ┃ ┃ ┗ 📜docker-entrypoint.sh
+ ┣ 📜docker-compose.yml
+ ```
+
+ ## Layouts
+
+ At the start of each *.mdx (in the frontMatter) you'll see a layout is defined like: `layout: 'docs-page'`.
+
+ In the layouts folder are *.jsx components for rendering the *.mdx pages.
+
+ ```
+ 📦nyzo-in-website
+ ┣ 📂layouts
+ ┃ ┗ 📜docs-page.jsx
+ ```
+
+ ## Library
+
+The lib folder is where files that are used through the project belong. These files will usually contain and export a function or functions.
+
+Each file and functions should be documented with comments.
+
+ ```
+📦nyzo-in-website
+ ┣ 📂lib
+ ┃ ┣ 📜i18n.js
+ ┃ ┗ 📜utils.js
+ ```
