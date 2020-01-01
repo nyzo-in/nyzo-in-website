@@ -90,6 +90,8 @@ Content writers and translators, you're done with this page now (if you like). T
 
 ## The other stuff
 
+This page is not intended to be an up to date list of the project files. It's just a guide, it is best to open the project in your editor.
+
 ## Docker
 
 These are the related to docker. The idea is that docker provides us with a consistent environment for local development across various different machines.
@@ -129,3 +131,35 @@ Each file and functions should be documented with comments.
  ┃ ┣ 📜i18n.js
  ┃ ┗ 📜utils.js
  ```
+
+## Server
+
+```
+📦nyzo-in-website
+ ┣ 📂server
+ ┃ ┣ 📜custom-middleware.js
+ ┃ ┗ 📜index.js
+ ```
+
+## The rest
+
+- `next.config.js` edit this when adding new components to *.mdx files
+- `package.json` is our package file. Essential for any node.js project.
+- Editor and code lint config files.
+
+
+```
+📦nyzo-in-website
+ ┣ 📂.git
+ ┣ 📂.mdx-data
+ ┣ 📂.next
+ ┣ 📂node_modules
+ ┣ 📜.babelrc
+ ┣ 📜.editorconfig
+ ┣ 📜.eslintrc
+ ┣ 📜.gitignore
+ ┣ 📜.prettierrc
+ ┣ 📜next.config.js
+ ┣ 📜package-lock.json
+ ┗ 📜package.json
+```
