@@ -16,13 +16,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apicache": "^1.5.2",
     "babel-plugin-import-glob-array": "^0.2.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "body-parser": "^1.19.0",
     "core-js": "^3.6.1",
     "cors": "^2.8.5",
-    "cpx": "^1.5.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "express": "^4.17.1",
     "extra-watch-webpack-plugin": "^1.0.3",
@@ -49,8 +46,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1",
-    "write-file-webpack-plugin": "^4.5.1"
+    "pretty-quick": "^2.0.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.1.2"
