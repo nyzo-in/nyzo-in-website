@@ -1,4 +1,4 @@
-import { withTranslation } from '../i18n';
+import { withTranslation } from '../lib/i18n';
 
 const cycleLength = 5000;
 

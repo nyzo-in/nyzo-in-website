@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Footer from './Footer.jsx';
 import Header from './header/Header.jsx';
-import { withTranslation } from '../i18n';
+import { withTranslation } from '../lib/i18n';
 
 class Page extends Component {
   render() {

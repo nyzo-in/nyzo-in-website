@@ -9,4 +9,4 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - NEXT_TELEMETRY_DEBUG=1
+      - NEXT_TELEMETRY_DEBUG=1 # data will be printed but not sent to nextjs.org

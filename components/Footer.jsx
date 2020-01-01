@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from '../i18n';
+import { withTranslation } from '../lib/i18n';
 
 const links = [
   {
@@ -38,7 +38,7 @@ const Footer = ({ t }) => (
         return (
           <li key={link.key}>
             <a target="_blank" rel="noreferrer" href={link.url}>
-              {t('links.' + link.key)}
+              {t(`links.${link.key}`)}
             </a>
           </li>
         );

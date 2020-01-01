@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NextRouter from 'next/router';
 
-import { i18n, Link, Router } from '../i18n';
+import { i18n, Link, Router } from '../lib/i18n';
 import { nextPageFromLang } from '../lib/utils';
 
 class LanguageSelect extends Component {
@@ -9,7 +9,7 @@ class LanguageSelect extends Component {
     event.preventDefault();
     const language = event.target.value;
     if (i18n.language !== language) {
-      let routerParams = nextPageFromLang(i18n.language, language);
+      const routerParams = nextPageFromLang(i18n.language, language);
       await i18n.changeLanguage(language);
       NextRouter.push(...routerParams);
     }

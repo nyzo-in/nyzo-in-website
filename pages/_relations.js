@@ -19,4 +19,5 @@ const relations = [
   },
 ];
 
+// eslint-disable-next-line import/prefer-default-export
 export { relations };

@@ -8,9 +8,9 @@ const next = require('next');
 const fetch = require('isomorphic-unfetch');
 const mcache = require('memory-cache');
 const nextI18NextMiddleware = require('next-i18next/middleware').default;
-const customMiddleware = require('../lib/custom-middleware.js').default;
+const customMiddleware = require('./custom-middleware.js').default;
 
-const nextI18next = require('../i18n');
+const nextI18next = require('../lib/i18n');
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
@@ -19,7 +19,7 @@ const server = express();
 
 const cache = duration => {
   return (req, res, next) => {
-    const key = `__express__${  req.originalUrl}` || req.url;
+    const key = `__express__${req.originalUrl}` || req.url;
     const cachedBody = mcache.get(key);
     if (cachedBody) {
       res.send(cachedBody);

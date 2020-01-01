@@ -4,7 +4,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
 import { Html } from 'next/document';
 import Page from '../components/Page';
-import { i18n, appWithTranslation } from '../i18n';
+import { i18n, appWithTranslation } from '../lib/i18n';
 
 const theme = {
   colors: {
@@ -36,6 +36,7 @@ class MyApp extends App {
     }
     return { pageProps };
   }
+
   render() {
     const { Component, pageProps } = this.props;
     return (

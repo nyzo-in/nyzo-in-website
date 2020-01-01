@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 
-import { i18n, Link, withTranslation } from '../../i18n';
+import { i18n, Link, withTranslation } from '../../lib/i18n';
 import LanguageSelect from '../LanguageSelect.jsx';
 import { HeaderStyles } from './styles.js';
 
 const Header = ({ t, lang }) => (
   <HeaderStyles>
-    <Link href={'/'}>
+    <Link href="/">
       <a>{t('home')}</a>
     </Link>
     {/* <br />

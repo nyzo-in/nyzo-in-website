@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { i18n, Link, withTranslation } from '../i18n';
+import { i18n, Link, withTranslation } from '../lib/i18n';
 import { frontMatter } from './en/**/*.mdx';
 
 function compare(a, b) {
