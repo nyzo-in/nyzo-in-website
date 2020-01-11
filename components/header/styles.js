@@ -6,7 +6,7 @@ const HeaderStyles = styled.header`
   align-items: center;
 
   padding: 8px;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
+  /* border-bottom: 2px solid ${({ theme }) => theme.colors.primary}; */
 `;
 
 export { HeaderStyles };

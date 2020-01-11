@@ -1,26 +1,57 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import App from 'next/app';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { reset } from 'styled-reset';
-import { Html } from 'next/document';
+import {
+  ThemeProvider,
+  createGlobalStyle
+} from 'styled-components';
+import {
+  reset
+} from 'styled-reset';
+import {
+  Html
+} from 'next/document';
 import Page from '../components/Page';
-import { i18n, appWithTranslation } from '../lib/i18n';
+import {
+  i18n,
+  appWithTranslation
+} from '../lib/i18n';
 
 const theme = {
+  maxWidth: '1440px',
+  innerMaxWidth: '1000px',
   colors: {
     primary: '#0070f3',
   },
 };
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle `
   ${'' /* ${reset} */}
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
   body {
     color: ${props => (props.whiteColor ? 'white' : 'black')};
   }
+
+
 `;
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx, req }) {
+  static async getInitialProps({
+    Component,
+    ctx,
+    req
+  }) {
     let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -34,18 +65,33 @@ class MyApp extends App {
     } else if (req) {
       pageProps.lang = req.language;
     }
-    return { pageProps };
+    return {
+      pageProps
+    };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Page {...pageProps}>
-          <Component {...pageProps} />
-        </Page>
-      </ThemeProvider>
+    const {
+      Component,
+      pageProps
+    } = this.props;
+    return ( <
+      ThemeProvider theme = {
+        theme
+      } >
+      <
+      GlobalStyle / >
+      <
+      Page {
+        ...pageProps
+      } >
+      <
+      Component {
+        ...pageProps
+      }
+      />             <
+      /Page>             <
+      /ThemeProvider>
     );
   }
 }

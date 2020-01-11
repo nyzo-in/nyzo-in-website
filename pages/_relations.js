@@ -8,7 +8,7 @@ const relations = [
     files: [
       {
         en: 'intro',
-        // es: 'intro',
+        es: 'intro',
         // de: 'intro',
       },
       {

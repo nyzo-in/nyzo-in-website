@@ -26,7 +26,7 @@ module.exports.default = function(nexti18next) {
   */
   middleware.push((req, res, next) => {
     if (isI18nRoute(req) && req.i18n) {
-      let currentLng = lngFromReq(req);
+      const currentLng = lngFromReq(req);
 
       const currentLngSubpath = subpathFromLng(config, currentLng);
 
@@ -35,11 +35,11 @@ module.exports.default = function(nexti18next) {
       // we need to add the language back in to the req.url
       // for next fo find the correct mdx file
 
-      let url = req.url;
+      const { url } = req;
       // console.log(url);
       const urlArray = url.split('/');
 
-      if (!urlArray.includes('locales') && url !== '/') {
+      if (!urlArray.includes('locales') && !urlArray.includes('images')) {
         req.url = addSubpath(url, currentLngSubpath);
         // console.log(url);
       }

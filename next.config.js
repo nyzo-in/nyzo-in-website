@@ -1,6 +1,7 @@
 const path = require('path');
 const withMdxEnhanced = require('next-mdx-enhanced');
 const ExtraWatchPlugin = require('extra-watch-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = withMdxEnhanced({
   scan: {
@@ -20,10 +21,16 @@ module.exports = withMdxEnhanced({
         dirs: [path.join(config.context, 'pages')],
       }),
     );
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+      }),
+    );
     return config;
   },
   publicRuntimeConfig: {
-    localeSubpaths:
-      typeof process.env.LOCALE_SUBPATHS === 'string' ? process.env.LOCALE_SUBPATHS : 'none',
+    localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string' ? process.env
+      .LOCALE_SUBPATHS : 'none',
   },
 });

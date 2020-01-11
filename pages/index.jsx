@@ -1,26 +1,24 @@
 import NextLink from 'next/link';
+import React from 'react';
 import { i18n, Link, withTranslation } from '../lib/i18n';
-import { frontMatter } from './en/**/*.mdx';
+import Hero from '../components/hero/Hero';
+import Features from '../components/features/Features';
+import Wallets from '../components/wallets/Wallets';
+import Exchanges from '../components/exchanges/Exchanges';
+import First from '../components/infographics/First';
 
-function compare(a, b) {
-  if (!a.order || !b.order) {
-    return 0;
-  }
-  return Number.parseInt(b.order) > Number.parseInt(a.order) ? -1 : 1;
-}
-
-const Homepage = ({ t, lang }) => {
-  // console.log(frontMatter);
-  frontMatter.sort(compare);
+const Homepage = ({ t, lang, frontMatter }) => {
+  console.log(frontMatter);
   return (
     <>
-      <h1>root Docs Index 13</h1>
+      <Hero heading="Nyzo.in Home" />
+      <First />
+      <Features heading="Nyzo features" />
+      <Wallets heading="Nyzo wallets" />
+      <Exchanges heading="Nyzo exchanges" />
+
       <ul>
         {frontMatter.map(page => {
-          const resourceLang = page.__resourcePath.split('/')[0];
-          if (resourceLang !== lang) {
-            return;
-          }
           return (
             <li key={page.__resourcePath}>
               <NextLink href={formatPath(page.__resourcePath)}>
