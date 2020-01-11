@@ -1,0 +1,83 @@
+---
+layout: 'infographic-page'
+title: 'Infographic title'
+---
+
+import First from '../../../components/infographics/first/First';
+
+<First>
+
+  ## NYZO ![NYZO](/images/nyzo-logo--white.svg?raw=true&sanitize=true "NYZO")
+
+  Highly efficient proof-of-diversity blockchain
+
+  NYZO has been developed from the ground up, it is an open-source initiative and isn’t a copy of any existing blockchain project.
+
+  The network has been running succefully and the source code can be found on GitHub. The NYZO codebase is going to start acting 
+  as an API server. This will be run-mode dependent, just like the various web server functions that are available now. 
+  It will interact with the mesh on one side and whatever it needs to interact with on the other side.
+
+  ### Proof-of-diversity (POD)
+
+  Proof-of-Diversity (PoD) consensus mechanism requires active participation in the form of time and verifier behaviour 
+  in the blockchain to be allowed to exert a certain influence on the system as a whole. 
+  The Proof-of-Diversity blockchain uses verification cycles to establish the authoritative form of the blockchain. 
+  The basic concept of proof-of-diversity is simple. Verifiers take turns producing blocks in a circular order. 
+  Some simple rules ensure that verifiers are neither added to nor removed from that circular order too quickly. 
+  In order to produce a believable forgery of the blockchain for any meaningful amount of time, 
+  an attacker would need to obtain more than half of the private keys of verifiers currently working on the blockchain. 
+  The design and technology are simple and clearly explained in NYZO whitepaper.
+
+  ### Verifier
+
+  Mesh (cycle) participants are called verifiers. Verifiers are in charge of verifying transactions and producing blocks. 
+  In exchange for securing the network, verifiers collect transaction fees which are distributed fairly among all of them. 
+  Each verifier gets a chance to verify one block in one mesh cycle. 
+  NYZO don’t need mining equipment and large amounts of processing power like others, only unique IP address and always on Linux VPS is required.
+
+  ### Sentinel 
+
+  The purpose of the NYZO Sentinel is to provide improve stability of the cycle by producing blocks for in-cycle verifiers 
+  that are unable to produce blocks due to temporary hardware and network issues. 
+  The Sentinel should not be run on an instance that is running the verifier. 
+  The NYZO sentinel is a seperate version of the nyzoVerifier designed to protect your in-cycle verifiers. 
+  Its job is to constantly check up on your verifiers. 
+  If one of them is unresponsive, the sentinel will initiate communication on behalf of the verifier, 
+  this all to ensure future cycle inclusion.
+
+  ### The Mesh (cycle)
+
+  Is simply a network of computers known as verifiers all running NYZO and communicating information to each other. 
+  The Mesh (cycle) is a central point of PoD system. 
+  For securing the Mesh these computers are given 10% reward of transaction fees for each block they secure.
+  
+  ### Block files
+  
+  One part of the consensus algorithm is the block consolidation process which ensures that a small machine 
+  such as a Rock64 Pro or a beefy Raspberry Pi can run a NYZO verifier with little storage space. 
+  1000 blocks are consolidated into 500 Kb of storage space. Very efficient.
+  
+  ### 51% attack resistance and energy efficiency
+
+  NYZO has a properly designed economic model that relies on time. 
+  Therefore, the cost for 51% attacks (relative to market cap) is huge, there is ongoing incentive to participate in the network, 
+  and attacks based on computing power (PoW) or ownership of token (PoS) aren’t feasible. 
+  NYZO uses only a tiny fraction of Bitcoin’s resources while performing the same tasks. 
+  58 000 000 000 kwH - 58 TWh : current BTC power cons. per year 
+  vs 36500 kwH - 0.0000365 TWh : current NYZO power cons. per year = 1,589,041 times more efficient and 51% attack resistant.
+  
+  ### Roadmap
+
+  NYZO developers have been asked many times for a roadmap. 
+  The roadmap is to keep making the code more stable, more robust, and more efficient.
+  
+  ### Scalability
+
+  NYZO doesn’t require any Layer 2 scaling solutions and is able to handle high transaction volumes per 
+  second which is only dependent on the performance of the verifiers in the mesh. 
+  The block time is 7 seconds and block size is 28 Kb.
+  NYZO provides deterministic finality within 8.5 seconds, plus or minus a few.
+  
+  ### Join the NYZO mesh!
+
+</First>
