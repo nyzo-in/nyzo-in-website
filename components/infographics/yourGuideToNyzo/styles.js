@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle `
 
 
 const FirstStyles = styled.div `
-  padding: 10px;
+  padding: 16px 10px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -43,7 +43,7 @@ const FirstStyles = styled.div `
     }
     + p {
       margin-bottom: 16px;
-
+      font-weight: 700;
     }
   }
 
