@@ -3,16 +3,20 @@ import { PlainTextStyles } from '../plainText/styles';
 
 const PinBoardBasicStyles = styled.div`
   position: relative;
-  padding: 16px 10px;
+  padding: 40px 16px 20px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   font-size: 0.8em;
-  /* background-color: #662928; */
+  overflow: hidden;
   font-family: 'Lato', sans-serif;
 
   display: flex;
   flex-wrap: wrap;
+
+  @media (min-width: 800px) {
+    padding: 40px 35px 20px;
+  }
 
   &:after {
     content: '';
@@ -45,16 +49,17 @@ const PinBoardBasicStyles = styled.div`
 
   h1 {
     display: flex;
-    margin: 0;
-    padding: 10px;
+    margin: 0 10px 30px;
+    padding: 0;
     color: #ffffff;
     font-size: 120px;
     text-shadow: 0px 0px 500px #fff;
     text-align: center;
     align-items: center;
     width: 100%;
-    @media (min-width: 800px) {
+    @media (min-width: 1200px) {
       width: 60%;
+      margin: 0;
     }
     span {
       display: none;
@@ -63,7 +68,10 @@ const PinBoardBasicStyles = styled.div`
       display: inline-block;
       margin-left: auto;
       margin-right: auto;
-      width: 90%;
+      width: 600px;
+      @media (min-width: 1200px) {
+        width: 95%;
+      }
       max-width: 100%;
       filter: drop-shadow(0px 0px 70px rgba(255, 255, 255, 0.8));
     }
@@ -72,16 +80,22 @@ const PinBoardBasicStyles = styled.div`
   .card-wrap {
     padding: 0 10px;
     width: 100%;
+    margin-bottom: 16px;
+    display: flex;
 
     @media (min-width: 500px) {
       width: 50%;
     }
-    @media (min-width: 800px) {
+    @media (min-width: 900px) {
+      /* width: 33%; */
+    }
+    @media (min-width: 1200px) {
+      margin-bottom: 0;
       width: 20%;
       display: flex;
-      &:nth-of-type(n + 7) {
+      /* &:nth-of-type(n + 7) {
         width: 25%;
-      }
+      } */
     }
     /* padding-right: 80px; */
     /* border: 1px solid lime; */
@@ -89,12 +103,12 @@ const PinBoardBasicStyles = styled.div`
 
   .card {
     position: relative;
-    width: 300px;
+    width: 250px;
     max-width: 100%;
     margin: 0 auto;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    @media (min-width: 800px) {
+    /* margin-top: 16px;
+    margin-bottom: 16px; */
+    @media (min-width: 1200px) {
       margin-right: 0;
       width: 80%;
       width: 160px;
@@ -103,7 +117,7 @@ const PinBoardBasicStyles = styled.div`
     /* The circle */
     &:after {
       position: absolute;
-      display: block;
+      display: none;
       content: '';
       background-size: contain;
       background-image: url('/images/circle.svg');
@@ -113,6 +127,9 @@ const PinBoardBasicStyles = styled.div`
       top: 0;
       background-repeat: no-repeat;
       transform: translateX(-50%);
+      @media (min-width: 1000px) {
+        display: block;
+      }
     }
 
     h3 {
@@ -131,7 +148,7 @@ const PinBoardBasicStyles = styled.div`
         top: 28px;
         transform: translateX(100%);
 
-        @media (min-width: 1000px) {
+        @media (min-width: 1200px) {
           display: block;
         }
       }
@@ -152,7 +169,7 @@ const PinBoardBasicStyles = styled.div`
       &:before {
         width: 60px;
         bottom: 0;
-        border: 3px solid #ffffff;
+        border: 2px solid #ffffff;
         border-top-width: 0;
         border-right-width: 0;
         background-repeat: no-repeat;
@@ -173,14 +190,16 @@ const PinBoardBasicStyles = styled.div`
       border-radius: 0 0 15px 15px;
 
       &:after {
+        position: absolute;
         display: block;
-        display: none;
+        /* display: none; */
         content: '';
         background-size: contain;
         background-image: url('/images/tape.svg');
         width: 150px;
         height: 50px;
         background-repeat: no-repeat;
+        opacity: 0.2;
       }
 
       &:before {
@@ -203,103 +222,190 @@ const PinBoardPlainStyles = styled(PlainTextStyles)``;
 
 const arrows = [
   {
-    width: 20,
-    borderWidth: '0 0 3px 3px'
+    width: 45,
+    borderWidth: '0 0 2px 2px',
+    bottom: -60,
+    tapeStyle: `
+    bottom: -20px;
+    left: -42px;
+    transform: rotate(34deg);
+    `,
+    wrapStyle: `
+    align-self:flex-end;
+    `
   },
   {
-    width: 20,
-    borderWidth: '3px  0 0 3px',
+    width: 18,
+    borderWidth: '2px  0 0 2px',
     left: '-25px',
     right: 'auto',
     top: 15,
+    bottom: -20,
     transform: 'translateX(-100%)',
-    backgroundPosition: 'left bottom'
+    backgroundPosition: 'left bottom',
+    tapeStyle: `
+    top: -12px;
+    right: -50px;
+    transform: rotate(34deg);
+    `,
+    wrapStyle: `
+    align-self:center;
+    `
   },
   {
     width: 20,
-    borderWidth: '0  0 0 3px',
+    borderWidth: '0  0 0 2px',
     left: '0',
     right: 'auto',
     top: 30,
     transform: 'translateX(-100%)',
-    backgroundPosition: 'left bottom'
+    backgroundPosition: 'left bottom',
+    tapeStyle: `
+    top: -12px;
+    right: -33px;
+    transform: rotate(34deg);
+    `
   },
   {
     width: 20,
-    borderWidth: '3px  3px 0 0',
+    borderWidth: '2px  2px 0 0',
     left: 'auto',
     right: '-30px',
     top: 15,
+    bottom: -30,
     transform: 'translateX(100%)',
-    backgroundPosition: 'right bottom'
+    backgroundPosition: 'right bottom',
+    tapeStyle: `
+    top: -11px;
+    left: -50px;
+    transform: rotate(-25deg);
+    `,
+    wrapStyle: `
+    align-self:center;
+    `
   },
   {
-    width: 20,
-    borderWidth: '0  3px 3px 0',
+    width: 30,
+    borderWidth: '0  2px 2px 0',
     left: '-16px',
     right: 'auto',
     top: 30,
+    bottom: -70,
     transform: 'translateX(-100%)',
-    backgroundPosition: 'left bottom'
+    backgroundPosition: 'left bottom',
+    tapeStyle: `
+    top: 23px;
+    left: -50px;
+    transform: rotate(-25deg);
+    `
   },
   {
-    width: 45,
-    borderWidth: '3px  0 0 0',
+    width: 30,
+    borderWidth: '2px  0 0 0',
     left: 'auto',
     right: '-30px',
     top: 15,
     transform: 'translateX(100%)',
-    backgroundPosition: 'right top'
+    backgroundPosition: 'right top',
+    tapeStyle: `
+    top: -11px;
+    left: -50px;
+    transform: rotate(-38deg);
+    `,
+    wrapStyle: `
+    padding-top: 89px;
+    max-height: 200px;
+    ovefflow: visible;
+    `
   },
   {
-    width: 20,
-    borderWidth: '0  3px 3px 0',
+    width: 18,
+    borderWidth: '0  2px 2px 0',
     left: 'auto',
     right: '-30px',
     top: 15,
-    height: 80,
+    height: 60,
     transform: 'translateX(100%) translateY(-100%)',
-    backgroundPosition: 'right top'
+    backgroundPosition: 'right top',
+    tapeStyle: `
+    bottom: 9px;
+    right: -82px;
+    transform: rotate(-34deg);
+    `,
+    wrapStyle: `
+    padding-top: 30px;
+    margin-left: 16%;
+    `
   },
   {
     width: 20,
-    borderWidth: '0  0 3px 3px',
+    borderWidth: '0  0 2px 2px',
     left: '-30px',
     right: 'auto',
     top: 15,
-    height: 80,
+    height: 140,
     transform: 'translateX(-100%) translateY(-100%)',
-    backgroundPosition: 'left top'
+    backgroundPosition: 'left top',
+    tapeStyle: `
+    top: -11px;
+    left: -50px;
+    transform: rotate(-38deg);
+    `,
+    wrapStyle: `
+    padding-top: 100px;
+    `
   },
   {
     width: 20,
-    borderWidth: '0 0 0 3px',
+    borderWidth: '0 0 0 2px',
     left: 'auto',
     right: '-36px',
     top: 2,
-    height: 80,
+    height: 40,
     transform: 'translateY(-100%)',
-    backgroundPosition: 'left top'
+    backgroundPosition: 'left top',
+    tapeStyle: `
+    bottom: -15px;
+    right: -62px;
+    transform: rotate(-10deg);
+    `,
+    wrapStyle: `
+    padding-top: 30px;
+    `
   },
   {
-    width: 50,
-    borderWidth: '0  0 3px 3px',
+    width: 30,
+    borderWidth: '0  0 2px 2px',
     left: '-30px',
     right: 'auto',
     top: 15,
-    height: 80,
+    height: 90,
     transform: 'translateX(-100%) translateY(-100%)',
-    backgroundPosition: 'left top'
+    backgroundPosition: 'left top',
+    tapeStyle: `
+    top: -12px;
+    right: -33px;
+    transform: rotate(34deg);
+    `,
+    wrapStyle: `
+    padding-top: 60px;
+    `
   }
 ];
 
 const arrowsCss = arrows.map(
   arrow => `
+  
+  @media (min-width: 1200px) {
+    ${arrow.wrapStyle ? arrow.wrapStyle : ''}
+  }
+
   .card h3:before,
   .card h3:after {
     width: ${`${arrow.width}px`};
     border-width: ${arrow.borderWidth};
     top: ${`${arrow.top}px`};
+    bottom: ${`${arrow.bottom}px`};
     left: ${arrow.left};
     right: ${arrow.right};
     height: ${`${arrow.height}px`};
@@ -309,9 +415,13 @@ const arrowsCss = arrows.map(
 
   }
   .card h3:after {
+    ${arrow.bottom ? `bottom: ${arrow.bottom - 3}px` : ``}
     top: ${`${arrow.top - 3}px`};
     width: ${`${arrow.width + 3}px`};
     background-position: ${arrow.backgroundPosition};
+  }
+  .card p:after {
+    ${arrow.tapeStyle}
   }
   `
 );
@@ -325,24 +435,26 @@ const PinBoardStyles = styled(PinBoardBasicStyles)`
     &:nth-of-type(6),
     &:nth-of-type(7),
     &:nth-of-type(9) {
-      .card {
-        margin-left: 0;
-        margin-right: auto;
-        /* also move the circle to the right */
-        &:after {
-          left: auto;
-          right: -18px;
-          transform: translateX(50%);
-        }
-        h3 {
-          /* align the heading right */
-          text-align: right;
-          &:after,
-          &:before {
-            /* and change the arrow line styles */
+      @media (min-width: 1200px) {
+        .card {
+          margin-left: 0;
+          margin-right: auto;
+          /* also move the circle to the right */
+          &:after {
             left: auto;
-            right: -17px;
-            transform: translateX(100%);
+            right: -18px;
+            transform: translateX(50%);
+          }
+          h3 {
+            /* align the heading right */
+            text-align: right;
+            &:after,
+            &:before {
+              /* and change the arrow line styles */
+              left: auto;
+              right: -17px;
+              transform: translateX(100%);
+            }
           }
         }
       }
@@ -379,9 +491,8 @@ const PinBoardStyles = styled(PinBoardBasicStyles)`
     &:nth-of-type(10) {
       ${arrowsCss[9]}
     }
-    /* &:nth-of-type(n + 10) {
-      opacity: 0;
-    } */
+    &:nth-of-type(n + 7) {
+    }
   }
 `;
 
