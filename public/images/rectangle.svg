@@ -1,0 +1,7 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <line x1="0" x2="100" y1="0" y2="0" stroke="#ffffff" opacity="0.2" stroke-width="3" stroke-linecap="butt"/>
+  <line x1="0" x2="0" y1="0" y2="100" stroke="#ffffff" opacity="0.2" stroke-width="3" stroke-linecap="butt"/>
+
+</svg>

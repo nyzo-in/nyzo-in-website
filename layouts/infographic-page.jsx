@@ -42,8 +42,8 @@ const DocsPage = frontMatter => {
             Wrap By:
             {frontMatter.wrap}
           </p>
-          {children}
         </Inner>
+        {children}
       </>
     );
   };
